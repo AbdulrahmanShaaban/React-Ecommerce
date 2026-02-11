@@ -99,7 +99,7 @@ export const MainContent = () => {
   };
 
   return (
-    <section className="xl:w-220 mr-40 lg:w-220 sm:w-160 p-5">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <div className="mb-5">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="relative mb-5 mt-5">
@@ -139,7 +139,7 @@ export const MainContent = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {filteredProducts.map((product) => (
             <BookCard
               key={product.id}
@@ -151,7 +151,8 @@ export const MainContent = () => {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-between items-center mt-5">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 mt-5">
+
           {/* previous */}
           <button
             onClick={() => handlePageChange(currentPage - 1)}
@@ -161,13 +162,15 @@ export const MainContent = () => {
             Previous
           </button>
           {/* 1,2,3,4,5 */}
-          <div className="flex flex-wrap justify-center">
+          <div className="flex flex-wrap justify-center gap-2">
             {/* paginations button */}
             {getPaginationButtons().map((page) => (
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className={`border px-4 py-2 mx-1 rounded-full ${page === currentPage ? "bg-black text-white" : ""}`}
+                className={`border px-3 py-1 sm:px-4 sm:py-2 rounded-full ${
+                  page === currentPage ? "bg-black text-white" : ""
+                }`}
               >
                 {page}
               </button>
